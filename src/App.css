@@ -1,0 +1,24 @@
+.plot-img{
+}
+
+.stock-content{
+  font-size: 19px;
+}
+
+.code-box{
+  color:black;
+  background-color: #e0e0e0;
+  padding: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+.plot-code{
+  color: black;
+}
+
+.plot-content{
+  font-size: 19px;
+  width: 60%;
+  margin:30px  auto;
+}
