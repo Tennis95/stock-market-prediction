@@ -1,0 +1,43 @@
+.stock-bg{
+    height: auto;
+    position: relative;
+}
+
+.stock-black-bg{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0, 0, 0,0.5);
+}
+
+.bg-image{
+    width: 100%;
+    height: auto;
+}
+.stock-container{
+    padding: 20px 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.stock-head{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stock-content{
+    color: rgb(255, 255, 255,0.8);
+    font-size: 17px;
+}
+
+.stock-input{
+    border: 1px solid grey;
+    border-radius: 20px;
+    width: 450px;
+    height: 30px;
+    padding-left: 30px;
+}
