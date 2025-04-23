@@ -1,72 +1,75 @@
 import React, { useEffect, useState } from "react";
 import "./main.css";
 import { useNavigate } from "react-router-dom";
+import bg from './../../images/6256878.jpg'
+import Select from "react-select";
+import Layout from "../Layout/Layout";
+
+const selectOption = [
+  {
+    label:"Closing Price",
+    value:'/closing/price'
+  },
+  {
+    label:"Visualizing Model Performance",
+    value:'/model/performance'
+  },
+  {
+    label:"Visualize our time series",
+    value:'/forecast'
+  },
+  {
+    label:"Daily Data Frame",
+    value:'/daily/monthly/frame'
+  },
+  {
+    label:"Monthly Data Frame",
+    value:'/monthly/data/frame'
+  },
+  {
+    label:"Yearly Time Frame",
+    value:'/price/data/frame'
+  },
+]
 
 function Main() {
   const navigate = useNavigate();//navigate purpose
   const [route, setRoute] = useState(""); //writing purpose
 
-  const handleSubmit = () => {
-    let page = route?.toLocaleLowerCase();
-    if(page==='closing price'){
-        navigate(`/closing/price`);
-    }
-    if(page==='model performance'){
-        navigate(`/model/performance`);
-    }
-    if(page==='forecast'){
-        navigate(`/forecast`);
-    }
+  const handleSubmit = (e) => {
+    navigate(`${e.value}`)
   };
 
   return (
-    <div class="container-fluid stock-bg">
-      <div class="container pt-5">
-        <h1 class="text-center stock-head">Stock Market Prediction</h1>
+    
+      <Layout>
+        <div class="container pt-5 stock-container">
+        <h1 class="text-center stock-head">Nvidia Corporation Stock Analysis</h1>
 
-        <div className="w-75 m-auto text-center stock-content">
+        <div className="w-75 m-auto stock-content">
         <p class="mt-4">
-          Accurately predicting stock prices can help investors and brokers make
-          better decisions and increase their profits. While stock prices often
-          move in complex and unpredictable ways, analyzing historical data can
-          reveal patterns that may help forecast future movements. Machine
-          learning especially regression models and Long Short-Term Memory
-          (LSTM) networks is well-suited for identifying these patterns.
+        Nvidia Corporation Stock Analysis, where we explore the historical performance of one of the world’s most influential technology companies. Nvidia, best known for its cutting-edge graphics processing units (GPUs), has grown to become a powerhouse in artificial intelligence (AI), gaming, data centers, and autonomous vehicles. This page highlights the key trends in Nvidia's stock price and trading volume over time using detailed visualizations across yearly, monthly, and daily time frames.
         </p>
         <p class=" mt-2">
-          LSTM models are particularly powerful because they can remember
-          information from past data over time, making them effective for
-          capturing trends. The typical process involves training these models
-          using historical stock data, testing them on new data, and evaluating
-          their performance using metrics like Mean Squared Error (MSE) and the
-          R² score.
+        Over the past decade, Nvidia’s stock has experienced remarkable growth. The yearly analysis reveals a relatively stable performance up until 2016, followed by a significant uptrend driven by the rise in gaming demand, cryptocurrency mining, and the AI revolution. The most noticeable jump occurred after 2022, where Nvidia's price and trading volume surged, reflecting investor confidence and increasing market dominance in the AI sector.
         </p>
         <p class="mt-2">
-          Over time, these models are refined to improve their accuracy. By
-          comparing the model's predictions to actual stock prices using visual
-          graphs, investors can get a clearer picture of potential future
-          movements. This makes complex financial data more understandable and
-          easier to use, ultimately supporting smarter investment decisions.
+        Our monthly and daily charts offer a closer look at these trends, showcasing both the long-term momentum and short-term fluctuations. These insights are crucial for investors, analysts, and traders looking to understand Nvidia’s market behavior, price cycles, and reaction to global tech trends.
+        </p>
+        <p class="mt-2">
+        With its strong financials, innovation pipeline, and leadership in high-performance computing, Nvidia continues to attract global attention. This analysis serves as a gateway for both beginners and experienced investors to dive deeper into the company’s market journey.
+        </p>
+        <p class="mt-2">
+        Explore the charts, understand the trends, and stay ahead in your investment decisions with our Nvidia stock visual report
         </p>
         </div>
         <div class="py-5 text-center">
-          <div>
-            <input
-              class="stock-input"
-              onChange={(e) => setRoute(e.target.value)}
-            />
-          </div>
-          <div class="mt-4">
-            <button
-              class="btn btn-md btn-outline-dark"
-              onClick={() => handleSubmit()}
-            >
-              Search
-            </button>
+          <div className="w-25 m-auto">
+            <Select options={selectOption} onChange={(e)=>handleSubmit(e)}/>
           </div>
         </div>
       </div>
-    </div>
+      </Layout>
   );
 }
 
