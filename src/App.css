@@ -34,3 +34,11 @@
 .indent{
   text-indent: 30px;
 }
+
+.stock-black-bg{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  background-color: rgb(0, 0, 0,0.5);
+}
